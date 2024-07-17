@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-from colab-utils import (InvalidInputsError, ControlVars)
+from colabutils import (InvalidInputsError, ControlVars)
 from .core import (Connectors, MountGoogleDrive, SQLServerConnection, 
                     SQLiteConnection, GCPBigQueryConnection)
 

@@ -1,4 +1,4 @@
-# Colab Utils: a simplified version of Industrial Data Science Workflow for working in Google Colab
+# Colab Utils: a simplified version of Industrial Data Science Workflow for working with Google Colab utility functions.
 ## Industrial Data Science Workflow: full workflow for ETL, statistics, and Machine learning modelling of (usually) time-stamped industrial facilities data.
 ### Not only applicable to monitoring quality and industrial facilities systems, the package can be applied to data manipulation, characterization and modelling of different numeric and categorical datasets to boost your work and replace tradicional tools like SAS, Minitab and Statistica software.
 

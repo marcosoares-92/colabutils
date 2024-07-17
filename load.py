@@ -7,8 +7,8 @@ class LoadColabUtils:
       : param: timeout (int): number of seconds to wait for a command to run, before considering error.
     """
     # Clone git repository:
-    self.cmd_line1 = """git clone https://github.com/marcosoares-92/colab-utils"""
-    self.msg1 = "Cloning colab-utils to working directory."
+    self.cmd_line1 = """git clone https://github.com/marcosoares-92/colabutils"""
+    self.msg1 = "Cloning Colab Utils to working directory."
 
     # Move idsw directory to root (Python workspace):
     # self.cmd_line2 = """mv IndustrialDataScienceWorkflow/idsw ."""
@@ -63,11 +63,11 @@ class LoadColabUtils:
   
   def move_pkg(self):
     """Move package to the working directory, to make it available."""
-    
+    """
     # SET PROCESS:
     self.proc2 = self.set_process (self.cmd_line2)
     # RUN PROCESS:
-    self.output2, self.error2 = self.run_process(self.proc2, self.msg2)
+    self.output2, self.error2 = self.run_process(self.proc2, self.msg2)"""
 
     return self
   
@@ -89,12 +89,12 @@ class LoadColabUtils:
 
 loader = LoadColabUtils(timeout = 60)
 loader = loader.clone_repo()
-loader = loader.move_pkg()
+#loader = loader.move_pkg()
 
 
 msg = """Package copied to the working directory.
 To import its whole content, run:
 
-    from colab-utils import *
+    from colabutils import *
 """
 print(msg)

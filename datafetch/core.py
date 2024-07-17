@@ -18,7 +18,7 @@ import seaborn as sns
 import openpyxl
 
 from dataclasses import dataclass
-from colab-utils import (InvalidInputsError, ControlVars)
+from colabutils import (InvalidInputsError, ControlVars)
 
 
 @dataclass
