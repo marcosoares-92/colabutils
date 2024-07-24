@@ -40,6 +40,10 @@ def copy_to_gcs (file_path, bucket, bucket_folder = None):
     : param: file_path (str): file path in the root directory where the file is initially saved.
         Examples: "data.csv" will export a file named "data.csv" in the root; "folder/data.csv" will export
         a file in the "folder" directory.
+        
+        -- ATTENTION: If you try to copy a file that does not exist (i.e., if you put an invalid name), the code will
+                    run, but the file will not appear in GCS. If you are trying to copy a file, but cannot visualize it in 
+                    GCS console, check if its name is correct.
     
     : param: bucket (str): bucket name. Example: "my-bucket" will export to a bucket named my-bucket.
     : param: bucket_folder (str): if the file should be exported to a particular folder or directory of the bucket, declare here.
