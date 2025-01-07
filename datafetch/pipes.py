@@ -1216,3 +1216,30 @@ def sqlserver_pipeline (server,
         Connectors.sqlserver_connector = sqlserver_connector
         return sqlserver_connector
     
+
+def import_and_print_img_file (file_path):
+    """
+    Use this function to import an image file to your environment and print it with matplotlib:
+    : file_path: string containing the path of the image file
+
+    returns image file as a numpy array of pixels
+    From Matplotlib docs (https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.imread.html):
+
+    The image data. The returned array has shape
+    (M, N) for grayscale images.
+    (M, N, 3) for RGB images.
+    (M, N, 4) for RGBA images.
+    PNG images are returned as float arrays (0-1). All other formats are returned as int arrays, with a bit depth determined by the file's contents.
+    """
+    import matplotlib.pyplot as plt
+    import matplotlib.image as mpimg
+
+    img = mpimg.imread(file_path)
+
+    # Display the image
+    fig = plt.figure(figsize = (12, 8))
+    plt.imshow(img)
+    plt.axis('off')  # Optional: Turn off axis labels
+    plt.show()
+
+    return img
