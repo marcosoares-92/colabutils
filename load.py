@@ -1,4 +1,4 @@
-class LoadColabUtils:
+class LoadIDSW:
   """Load IndustrialDataScienceWorkflow on your environment without installing with pip install."""
 
   def __init__(self, timeout = 60):
@@ -7,12 +7,12 @@ class LoadColabUtils:
       : param: timeout (int): number of seconds to wait for a command to run, before considering error.
     """
     # Clone git repository:
-    self.cmd_line1 = """git clone https://github.com/marcosoares-92/colabutils"""
-    self.msg1 = "Cloning Colab Utils to working directory."
+    self.cmd_line1 = """git clone https://github.com/marcosoares-92/IndustrialDataScienceWorkflow IndustrialDataScienceWorkflow"""
+    self.msg1 = "Cloning IndustrialDataScienceWorkflow to working directory."
 
     # Move idsw directory to root (Python workspace):
-    # self.cmd_line2 = """mv IndustrialDataScienceWorkflow/idsw ."""
-    # self.msg2 = "Subdirectory 'idsw' moved to root directory. Now it can be directly imported."
+    self.cmd_line2 = """mv IndustrialDataScienceWorkflow/idsw ."""
+    self.msg2 = "Subdirectory 'idsw' moved to root directory. Now it can be directly imported."
 
     self.timeout = timeout
   
@@ -63,11 +63,11 @@ class LoadColabUtils:
   
   def move_pkg(self):
     """Move package to the working directory, to make it available."""
-    """
+    
     # SET PROCESS:
     self.proc2 = self.set_process (self.cmd_line2)
     # RUN PROCESS:
-    self.output2, self.error2 = self.run_process(self.proc2, self.msg2)"""
+    self.output2, self.error2 = self.run_process(self.proc2, self.msg2)
 
     return self
   
@@ -87,14 +87,19 @@ class LoadColabUtils:
     return self
 
 
-loader = LoadColabUtils(timeout = 60)
+loader = LoadIDSW(timeout = 60)
 loader = loader.clone_repo()
-#loader = loader.move_pkg()
+loader = loader.move_pkg()
 
+try:
+  from idsw import *
+except ModuleNotFoundError:
+  # Package was not moved.
+  loader = loader.move_pkg_alternative()
 
 msg = """Package copied to the working directory.
 To import its whole content, run:
 
-    from colabutils import *
+    from idsw import *
 """
 print(msg)
